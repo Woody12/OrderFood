@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Linq;
-using System;
+using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
 {
@@ -18,9 +18,7 @@ public class MenuController : MonoBehaviour
     void Start()
     {
         loadRestaurants();
-      //  loadMenus();
-
-        Debug.Log("restaurant is " + retrieveRestaurant(Category.greek)[1].name);
+        loadMenus();
     }
 
     private void cacheRestaurant(Restaurant[] restaurants)
@@ -33,25 +31,74 @@ public class MenuController : MonoBehaviour
         this.menus = menus;
     }
 
+    private GameObject findChildFromParent(string parentName, string childNameToFind)
+    {
+        string childLocation = parentName + "/" + childNameToFind;
+        GameObject childObject = GameObject.Find(childLocation);
+        return childObject;
+    }
+
     private void setupMenu(Menu[] menus)
     {
         cacheMenu(menus);
+        createMenuStore(menus);
     }
 
+    private void createMenuStore(Menu[] menus) {
+        GameObject menuButtonHeader = GameObject.FindGameObjectWithTag("MenuButtonHeader");
+        var toggleCollectionImageScript = menuButtonHeader.GetComponent<ToggleCollectionImageChange>();
+
+        if ((menuButtonHeader != null) && (toggleCollectionImageScript != null))
+        {
+            var sprites = toggleCollectionImageScript.Sprites;
+            if ((sprites.Length != menus.Length) && (sprites.Length > 0))
+            {
+                Debug.LogError("Can't show menus as the length is not the same as the elements");
+                return;
+            }
+            connectMenuElements(sprites);
+            toggleCollectionImageScript.manualSetImage(sprites[0]);
+        } else
+        {
+            Debug.Log("Can't find Button Header.");
+        }
+    }
+
+    private void connectMenuElements(Sprite[] sprites)
+    {
+        for (int index = 0; index < menus.Length; index++)
+        {
+            GameObject menuButton = GameObject.FindGameObjectWithTag("MenuCategory" + index);
+            GameObject buttonImage = findChildFromParent(menuButton.name + "/Image Mask", "Image");
+
+            if (buttonImage != null)
+            {
+                Image image = buttonImage.GetComponent<Image>();
+                Sprite mSprite = Resources.Load<Sprite>("Images/" + menus[index].menuDetails[0].imageName);
+                if (mSprite != null)
+                {
+                    image.sprite = mSprite;
+                    sprites[index] = mSprite;
+                }
+                else
+                {
+                    Debug.Log("Sprite can't be found");
+                }
+            }
+            else
+            {
+                Debug.Log("Button image can't be found.");
+            }
+        }
+    }
     private void loadRestaurants()
     {
         network.retrieveRestaurant(cacheRestaurant);
-        
-        Debug.Log("restaurant is " + restaurants.Length);
-        Debug.Log("restaurant result is " + restaurants[1].name);
     }
 
     private void loadMenus()
     {
         network.retrieveMenu(setupMenu);
-
-        Debug.Log("menu is " + menus.Length);
-        Debug.Log("menu result is " + menus[0].id);
     }
 
     public Restaurant[] retrieveRestaurant(Category category)
@@ -61,3 +108,28 @@ public class MenuController : MonoBehaviour
         return filtered;
     }
 }
+
+// TODO later:
+
+/*
+ * 
+ *  var toggleCollectionImageScript = menuButtonHeader.GetComponent<ToggleCollectionImageChange>();
+            var toggleCollection = toggleCollectionImageScript.ToggleCollection;
+
+            if (toggleCollection != null)
+            {
+
+            List<StatefulInteractable> toggles = toggleCollection.Toggles; // new List<StatefulInteractable>();
+            Debug.Log("there are count: " + toggles.Count);
+                    //GameObject heroButton = (GameObject)Resources.Load("HeroButton");
+                    Vector3 spawnPos = new Vector3(menuButton.transform.position.x + 50, menuButton.transform.position.y, 0);
+                    var newHeroButton = Instantiate(menuButton, spawnPos, menuButton.transform.rotation);
+             
+                    newHeroButton.transform.parent = menuButtonHeader.transform;
+               
+                    var newToggle = Instantiate(toggles[0]);
+    
+                    toggles[0] = newHeroButton;
+                    toggles.Add(newToggle);
+                    toggleCollection.Toggles = toggles;
+                    */

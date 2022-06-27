@@ -67,7 +67,45 @@ static class GlobalData
 	}
 ]";
 
-	public static string menuData = @"  
-
-";
+	public static string menuData = @"[{
+		""id"": 0,
+		""category"": 0,
+		""menuDetails"": [{
+			""name"": ""Cheeseburger"",
+			""description"": ""Classic burger with American cheese"",
+			""imageName"": ""Hamburger"",
+			""price"": ""5.99""
+		}]
+	},
+	{
+		""id"": 1,
+		""category"": 1,
+		""menuDetails"": [{
+			""name"": ""Noodle Dish"",
+			""description"": ""Yummy special noodle dish"",
+			""imageName"": ""Chinese"",
+			""price"": ""8.99""
+		}]
+	},
+	{
+		""id"": 2,
+		""category"": 2,
+		""menuDetails"": [{
+			""name"": ""Sweet Gyro"",
+			""description"": ""Try our signature Gyro dish"",
+			""imageName"": ""Gyro"",
+			""price"": ""10.99""
+		}]
+	},
+	{
+		""id"": 3,
+		""category"": 3,
+		""menuDetails"": [{
+			""name"": ""Taco"",
+			""description"": ""Grand Beef or Chickecn or Fish Taco day"",
+			""imageName"": ""Mex"",
+			""price"": ""9.99""
+		}]
+	}
+]";
 }

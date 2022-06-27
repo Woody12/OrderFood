@@ -20,7 +20,7 @@ public struct Menu
 public struct MenuDetail
 {
     public string name;
-    public string detail;
+    public string description;
     public string imageName;
     public float price;
 }
