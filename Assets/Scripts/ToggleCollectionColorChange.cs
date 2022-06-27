@@ -26,7 +26,7 @@ namespace Microsoft.MixedReality.Toolkit.Examples.Demos
         private MeshRenderer meshRenderer;
 
         /// <summary>
-        /// he mesh renderer to update for this color changer.
+        /// the mesh renderer to update for this color changer.
         /// </summary>
         public MeshRenderer MeshRenderer
         {

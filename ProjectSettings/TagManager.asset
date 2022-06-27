@@ -3,7 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - MenuButtonHeader
+  - MenuCategory0
+  - MenuCategory1
+  - MenuCategory2
+  - MenuCategory3
+  - Restaurant1
+  - Restaurant2
+  - Restaurant3
+  - Restaurant4
+  - MenuController
+  - Restaurant0
   layers:
   - Default
   - TransparentFX

@@ -19,21 +19,6 @@ public class ToggleCollectionImageChange : MonoBehaviour
     [SerializeField]
     private GameObject imagePanel;
 
-    /*
-    [Tooltip("The image to change.")]
-    [SerializeField]
-    private ImageDisplay imageDisplay;
-
-    /// <summary>
-    /// the image panel to update for this color changer.
-    /// </summary>
-    public ImageDisplay ImageDisplay
-    {
-        get => imageDisplay;
-        set => imageDisplay = value;
-    }
-    */
-
     [Tooltip("The sprite for this color changer.")]
     [SerializeField]
     private Sprite[] sprites;
@@ -47,10 +32,13 @@ public class ToggleCollectionImageChange : MonoBehaviour
         set => sprites = value;
     }
 
+    public int currentSelectedIndex = 0;
+
     // Start is called before the first frame update
     void Start()
     {
-        ImageDisplay imageDisplay = imagePanel.GetComponent<ImageDisplay>();
+        ImageDisplay imageDisplay = createImageDisplay();
+        if (imageDisplay == null) { return; }
 
         if (sprites.Length == 0)
         {
@@ -63,7 +51,32 @@ public class ToggleCollectionImageChange : MonoBehaviour
             {
                 imageDisplay.ImageName = sprites[toggleSelectedIndex];
                 imageDisplay.updateImage();
+                currentSelectedIndex = toggleSelectedIndex;
             }
         });
+    }
+
+    private ImageDisplay createImageDisplay()
+    {
+        ImageDisplay imageDisplay = imagePanel.GetComponent<ImageDisplay>();
+        if (imageDisplay != null)
+        {
+            return imageDisplay;
+        }
+        else
+        {
+            Debug.LogError("Can't find Image Display.");
+            return null;
+        }
+    }
+
+    public void manualSetImage(Sprite sprite)
+    {
+        ImageDisplay imageDisplay = createImageDisplay();
+        if (imageDisplay != null)
+        {
+            imageDisplay.ImageName = sprite;
+            imageDisplay.updateImage();
+        }
     }
 }
