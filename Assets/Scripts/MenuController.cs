@@ -19,6 +19,7 @@ public class MenuController : MonoBehaviour
     {
         loadRestaurants();
         loadMenus();
+        Debug.Log("restaurant count is " + restaurants.Length);
     }
 
     private void cacheRestaurant(Restaurant[] restaurants)
@@ -101,10 +102,24 @@ public class MenuController : MonoBehaviour
         network.retrieveMenu(setupMenu);
     }
 
+    public void displayRestaurant()
+    {
+        GameObject menuButtonHeader = GameObject.FindGameObjectWithTag("MenuButtonHeader");
+        var toggleCollectionImageScript = menuButtonHeader.GetComponent<ToggleCollectionImageChange>();
+
+        if ((menuButtonHeader != null) && (toggleCollectionImageScript != null))
+        {
+            var selectIndex = toggleCollectionImageScript.currentSelectedIndex;
+            if (typeof(Category).IsEnumDefined(selectIndex)) {
+                retrieveRestaurant((Category)selectIndex);
+            }
+        }
+    }
+
     public Restaurant[] retrieveRestaurant(Category category)
     {
         Restaurant[] filtered = restaurants.Where(x => x.category == category).ToArray();
-        Debug.Log("restaurant filter for category " + category + "length: " + filtered.Length + " is " + filtered[1].name);
+        Debug.Log("restaurant filter for category " + category + "length: " + filtered.Length + " is " + filtered[0].name);
         return filtered;
     }
 }

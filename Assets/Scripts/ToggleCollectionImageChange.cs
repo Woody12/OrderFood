@@ -32,6 +32,8 @@ public class ToggleCollectionImageChange : MonoBehaviour
         set => sprites = value;
     }
 
+    public int currentSelectedIndex = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +51,7 @@ public class ToggleCollectionImageChange : MonoBehaviour
             {
                 imageDisplay.ImageName = sprites[toggleSelectedIndex];
                 imageDisplay.updateImage();
+                currentSelectedIndex = toggleSelectedIndex;
             }
         });
     }
