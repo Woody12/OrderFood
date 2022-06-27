@@ -1,12 +1,14 @@
 using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
+using TMPro;
 
 public class MenuController : MonoBehaviour
 {
     private Network network = new Network();
     private Restaurant[] restaurants;
     private Menu[] menus;
+    private int defaultSelectIndex = 0;
 
     public Restaurant[] Restaurants
     {
@@ -19,7 +21,6 @@ public class MenuController : MonoBehaviour
     {
         loadRestaurants();
         loadMenus();
-        Debug.Log("restaurant count is " + restaurants.Length);
     }
 
     private void cacheRestaurant(Restaurant[] restaurants)
@@ -43,6 +44,7 @@ public class MenuController : MonoBehaviour
     {
         cacheMenu(menus);
         createMenuStore(menus);
+        displayRestaurant();
     }
 
     private void createMenuStore(Menu[] menus) {
@@ -58,7 +60,7 @@ public class MenuController : MonoBehaviour
                 return;
             }
             connectMenuElements(sprites);
-            toggleCollectionImageScript.manualSetImage(sprites[0]);
+            toggleCollectionImageScript.manualSetImage(sprites[defaultSelectIndex]);
         } else
         {
             Debug.Log("Can't find Button Header.");
@@ -111,16 +113,55 @@ public class MenuController : MonoBehaviour
         {
             var selectIndex = toggleCollectionImageScript.currentSelectedIndex;
             if (typeof(Category).IsEnumDefined(selectIndex)) {
-                retrieveRestaurant((Category)selectIndex);
+                Restaurant[] filteredRestaurants = retrieveRestaurant((Category)selectIndex);
+                connectToRestaurants(filteredRestaurants);
             }
         }
     }
 
-    public Restaurant[] retrieveRestaurant(Category category)
+    private Restaurant[] retrieveRestaurant(Category category)
     {
         Restaurant[] filtered = restaurants.Where(x => x.category == category).ToArray();
         Debug.Log("restaurant filter for category " + category + "length: " + filtered.Length + " is " + filtered[0].name);
         return filtered;
+    }
+
+    private void connectToRestaurants(Restaurant[] filteredRestaurants)
+    {
+        for (int index = 0; index < 4; index++)
+        {
+            GameObject restaurantButton = GameObject.FindGameObjectWithTag("Restaurant" + index);
+            
+            if (index < filteredRestaurants.Length)
+            {
+                // Display the restaurant info
+                GameObject displayText = findChildFromParent(restaurantButton.name + "/Frontplate/AnimatedContent", "Text");
+
+                if (displayText != null)
+                {
+                    TMP_Text textMeshPro = displayText.GetComponent<TMP_Text>();
+                    Debug.Log("name is " + filteredRestaurants[index].name);
+                    if (textMeshPro != null)
+                    {
+                        textMeshPro.text = filteredRestaurants[index].name;
+                        restaurantButton.transform.localScale = new Vector3(1, 1, 1);
+                    }
+                    else
+                    {
+                        Debug.Log("Can't find text mesh pro.");
+                    }
+                }
+                else
+                {
+                    Debug.Log("Button image can't be found.");
+                }
+            } else
+            {
+                // Hide the Button
+                restaurantButton.transform.localScale = new Vector3(0, 0, 0);
+            }
+            
+        }
     }
 }
 
