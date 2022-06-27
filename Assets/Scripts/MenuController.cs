@@ -140,11 +140,15 @@ public class MenuController : MonoBehaviour
                 if (displayText != null)
                 {
                     TMP_Text textMeshPro = displayText.GetComponent<TMP_Text>();
-                    Debug.Log("name is " + filteredRestaurants[index].name);
+                   
                     if (textMeshPro != null)
                     {
-                        textMeshPro.text = filteredRestaurants[index].name;
-                        restaurantButton.transform.localScale = new Vector3(1, 1, 1);
+                        var info = filteredRestaurants[index];
+                        /*
+                        textMeshPro.text = "<size = 8>" + info.name + "</size>" + "\n<size = 6>" + info.address + " " + info.city + ", " + info.state + " " + info.zip + "</size>";
+                        */
+                       textMeshPro.text = info.name;
+                       restaurantButton.transform.localScale = new Vector3(1, 1, 1);
                     }
                     else
                     {
