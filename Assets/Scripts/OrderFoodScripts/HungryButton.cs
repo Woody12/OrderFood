@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HungryButton : MonoBehaviour
 {
-    [SerializeField] GameObject _hungryPanel, _hungryImageOne, _hungryImageTwo, _menu;
+    [SerializeField] GameObject _hungryPanel, _hungryImageOne, _hungryImageTwo, _menu, _endDialog;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +16,8 @@ public class HungryButton : MonoBehaviour
             Debug.LogError("HungryButton::_hungryPanel is null");
         if (_menu == null)
             Debug.LogError("HungryButton::_menu is null");
+        if (_endDialog == null)
+            Debug.LogError("HungryButton::_endDialog is null");
     }
 
     // Update is called once per frame
@@ -44,6 +46,7 @@ public class HungryButton : MonoBehaviour
             _menu.transform.localScale = new Vector3(0, 0, 0);
             _hungryImageOne.transform.localScale = new Vector3(0, 0, 0);
             _hungryImageTwo.transform.localScale = new Vector3(0, 0, 0);
+            _endDialog.SetActive(true);
 
         }
         this.gameObject.transform.localScale = new Vector3(0, 0, 0);
