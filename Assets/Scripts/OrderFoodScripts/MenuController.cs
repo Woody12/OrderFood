@@ -144,10 +144,10 @@ public class MenuController : MonoBehaviour
                     if (textMeshPro != null)
                     {
                         var info = filteredRestaurants[index];
-                        /*
-                        textMeshPro.text = "<size = 8>" + info.name + "</size>" + "\n<size = 6>" + info.address + " " + info.city + ", " + info.state + " " + info.zip + "</size>";
-                        */
-                       textMeshPro.text = info.name;
+                        
+                        textMeshPro.text = info.name + "\n" + info.address + " " + info.city + ", " + info.state + " " + info.zip;
+                        
+                       //textMeshPro.text = info.name;
                        restaurantButton.transform.localScale = new Vector3(1, 1, 1);
                     }
                     else
