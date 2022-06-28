@@ -167,6 +167,11 @@ public class MenuController : MonoBehaviour
             
         }
     }
+
+    public void QuitApp()
+    {
+        Application.Quit();
+    }
 }
 
 // TODO later:
