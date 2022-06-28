@@ -7,11 +7,19 @@ using TMPro;
 
 public class OrderFood : MonoBehaviour
 {
-    [SerializeField] Sprite _food1, _food2, _food3, _food4;
+    [SerializeField] private GameObject _menu;
+    [SerializeField] private GameObject _mainMenu;
+    [SerializeField] private GameObject _sendButton;
+   
     // Start is called before the first frame update
     void Start()
     {
-       
+        if (_menu == null)
+            Debug.LogError("OrderFood::_menu is null");
+        if (_mainMenu == null)
+            Debug.LogError("OrderFood::_mainMenu is null");
+        if (_sendButton == null)
+            Debug.LogError("OrderFood::_sendButton is Null");
         
     }
 
@@ -19,5 +27,13 @@ public class OrderFood : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void GetMenu()
+    {
+        _menu.SetActive(true);
+        _sendButton.SetActive(true);
+        //hide the main menu
+        _mainMenu.transform.localScale = new Vector3(0, 0, 0);
     }
 }
