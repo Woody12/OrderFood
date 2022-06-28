@@ -268,6 +268,7 @@ MonoBehaviour:
   _hungryPanel: {fileID: 8510261677420737868}
   _hungryImageOne: {fileID: 862305033}
   _hungryImageTwo: {fileID: 1069515626}
+  _menu: {fileID: 9174201709415725313}
 --- !u!114 &171562350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42302,6 +42303,7 @@ MonoBehaviour:
   _hungryPanel: {fileID: 8510261677420737868}
   _hungryImageOne: {fileID: 862305033}
   _hungryImageTwo: {fileID: 1069515626}
+  _menu: {fileID: 9174201709415725313}
 --- !u!114 &8029418310961206052
 MonoBehaviour:
   m_ObjectHideFlags: 0
