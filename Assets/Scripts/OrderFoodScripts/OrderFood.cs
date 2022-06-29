@@ -7,6 +7,7 @@ using TMPro;
 
 public class OrderFood : MonoBehaviour
 {
+    [SerializeField] private MenuController _menuController;
     [SerializeField] private GameObject _menu;
     [SerializeField] private GameObject _mainMenu;
     [SerializeField] private GameObject _sendButton;
@@ -22,18 +23,14 @@ public class OrderFood : MonoBehaviour
             Debug.LogError("OrderFood::_sendButton is Null");
         
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void GetMenu()
     {
+       // displayMenu
         _menu.SetActive(true);
         _sendButton.SetActive(true);
+
         //hide the main menu
         _mainMenu.transform.localScale = new Vector3(0, 0, 0);
+        _menuController.displayMenu();
     }
 }
