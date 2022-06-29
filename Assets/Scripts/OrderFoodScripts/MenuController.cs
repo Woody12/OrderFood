@@ -185,7 +185,7 @@ public class MenuController : MonoBehaviour
                         textMeshPro.fontSize = 5;
                         Debug.Log("textmesh pro: " + textMeshPro.text);
 
-                        menuButton.transform.localScale = new Vector3(1, 1, 1);
+                       // menuButton.transform.localScale = new Vector3(1, 1, 1);
                     }
                     else
                     {
@@ -200,7 +200,7 @@ public class MenuController : MonoBehaviour
             else
             {
                 // Hide the Button
-                menuButton.transform.localScale = new Vector3(0, 0, 0);
+                //menuButton.transform.localScale = new Vector3(0, 0, 0);
             }
 
         }
