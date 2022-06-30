@@ -171,7 +171,7 @@ public class MenuController : MonoBehaviour
             if (index < filteredMenus.Length)
             {
                 // Display the restaurant info
-                GameObject displayText = findChildFromParent(menuButton.name + "/Frontplate/AnimatedContent", "Text");
+                GameObject displayText = findChildFromParent(menuButton.name + "/Frontplate/AnimatedContent", "Texty");
                 Debug.Log("index is " + index);
                 if (displayText != null)
                 {
@@ -184,8 +184,6 @@ public class MenuController : MonoBehaviour
                         textMeshPro.text = info.name + "\n" + info.description + "\n" + "$" + info.price;
                         textMeshPro.fontSize = 5;
                         Debug.Log("textmesh pro: " + textMeshPro.text);
-
-                       // menuButton.transform.localScale = new Vector3(1, 1, 1);
                     }
                     else
                     {
@@ -200,7 +198,7 @@ public class MenuController : MonoBehaviour
             else
             {
                 // Hide the Button
-                //menuButton.transform.localScale = new Vector3(0, 0, 0);
+                menuButton.transform.localScale = new Vector3(0, 0, 0);
             }
 
         }
