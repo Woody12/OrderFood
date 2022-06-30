@@ -75,6 +75,12 @@ static class GlobalData
 			""description"": ""Classic burger with American cheese"",
 			""imageName"": ""Hamburger"",
 			""price"": ""5.99""
+		},
+		{
+			""name"": ""Hamburger"",
+			""description"": ""Flame boiled burger"",
+			""imageName"": ""Hamburger"",
+			""price"": ""4.99""
 		}]
 	},
 	{
@@ -85,6 +91,18 @@ static class GlobalData
 			""description"": ""Yummy special noodle dish"",
 			""imageName"": ""Chinese"",
 			""price"": ""8.99""
+		},
+		{
+			""name"": ""Sweet Sour Pork"",
+			""description"": ""Sweet delight"",
+			""imageName"": ""Chinese"",
+			""price"": ""10.99""
+		},
+		{
+			""name"": ""Kung Pao Chicken"",
+			""description"": ""Love the Spicyness"",
+			""imageName"": ""Chinese"",
+			""price"": ""9.99""
 		}]
 	},
 	{
@@ -92,7 +110,7 @@ static class GlobalData
 		""category"": 2,
 		""menuDetails"": [{
 			""name"": ""Sweet Gyro"",
-			""description"": ""Try our signature Gyro dish"",
+			""description"": ""Our signature dish"",
 			""imageName"": ""Gyro"",
 			""price"": ""10.99""
 		}]
@@ -101,10 +119,28 @@ static class GlobalData
 		""id"": 3,
 		""category"": 3,
 		""menuDetails"": [{
-			""name"": ""Taco"",
-			""description"": ""Grand Beef or Chickecn or Fish Taco day"",
+			""name"": ""Burrito"",
+			""description"": ""To die for"",
 			""imageName"": ""Mex"",
 			""price"": ""9.99""
+		},
+		{
+			""name"": ""Taco"",
+			""description"": ""Crispy and Yummy"",
+			""imageName"": ""Mex"",
+			""price"": ""7.99""
+		},
+		{
+			""name"": ""Tamales"",
+			""description"": ""Tender... ooh.."",
+			""imageName"": ""Mex"",
+			""price"": ""8.99""
+		},
+		{
+			""name"": ""Chips & Salsa"",
+			""description"": ""Don't forget the dips"",
+			""imageName"": ""Mex"",
+			""price"": ""4.99""
 		}]
 	}
 ]";

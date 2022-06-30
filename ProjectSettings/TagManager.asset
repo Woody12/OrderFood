@@ -15,6 +15,10 @@ TagManager:
   - Restaurant4
   - MenuController
   - Restaurant0
+  - Menu0
+  - Menu1
+  - Menu2
+  - Menu3
   layers:
   - Default
   - TransparentFX

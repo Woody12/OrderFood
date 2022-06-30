@@ -14031,8 +14031,8 @@ GameObject:
   - component: {fileID: 6247270100457144624}
   - component: {fileID: 2056589922665215194}
   m_Layer: 5
-  m_Name: List Item
-  m_TagString: Untagged
+  m_Name: List Item (0)
+  m_TagString: Menu0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14490,7 +14490,7 @@ GameObject:
   - component: {fileID: 2056589922921570331}
   m_Layer: 5
   m_Name: List Item (1)
-  m_TagString: Untagged
+  m_TagString: Menu1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14948,7 +14948,7 @@ GameObject:
   - component: {fileID: 2056589922387083063}
   m_Layer: 5
   m_Name: List Item (3)
-  m_TagString: Untagged
+  m_TagString: Menu3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15406,7 +15406,7 @@ GameObject:
   - component: {fileID: 2056589921030204088}
   m_Layer: 5
   m_Name: List Item (2)
-  m_TagString: Untagged
+  m_TagString: Menu2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34775,7 +34775,7 @@ GameObject:
   - component: {fileID: 7348843540695733164}
   - component: {fileID: 6851627212412163901}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Texty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34794,7 +34794,7 @@ GameObject:
   - component: {fileID: 7348843541586970147}
   - component: {fileID: 6851627211151819442}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Texty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34813,7 +34813,7 @@ GameObject:
   - component: {fileID: 7348843541060376847}
   - component: {fileID: 6851627210629848478}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Texty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34832,7 +34832,7 @@ GameObject:
   - component: {fileID: 7348843541342916046}
   - component: {fileID: 6851627210907240799}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Texty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44146,6 +44146,7 @@ GameObject:
   - component: {fileID: 9174201709415725317}
   - component: {fileID: 9174201709415725316}
   - component: {fileID: 9174201709415725319}
+  - component: {fileID: 9174201709415725323}
   m_Layer: 5
   m_Name: Menu Items
   m_TagString: Untagged
@@ -44250,6 +44251,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9174201709415725313}
   m_CullTransparentMesh: 1
+--- !u!114 &9174201709415725323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9174201709415725313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 890bdcb1ad49ea04180940018bbac983, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _menuController: {fileID: 710609207}
 --- !u!1 &9174201709830518437
 GameObject:
   m_ObjectHideFlags: 0
