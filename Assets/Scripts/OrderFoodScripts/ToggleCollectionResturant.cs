@@ -14,7 +14,7 @@ namespace Microsoft.MixedReality.Toolkit.UX
     /// A custom list of interactables can be set; if none is set at edit-time, all direct
     /// StatefulInteractable children will be added.
     /// </summary>
-    public class ToggleCollection : MonoBehaviour
+    public class ToggleCollectionResturant : MonoBehaviour
     {
         [SerializeField]
         [Tooltip("Array of StatefulInteractable toggles that will be managed by this controller.")]
@@ -169,6 +169,8 @@ namespace Microsoft.MixedReality.Toolkit.UX
                 else
                 {
                     Toggles[i].ForceSetToggled(true);
+                    Debug.Log("Resturant :: Food Index " + i + "Selected");
+                    // Here is where we would call for the menu using the Resturant selected, right now being controlled by the Menu Controller and JSON.
                 }
             }
 
